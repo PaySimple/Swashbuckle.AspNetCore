@@ -8,4 +8,10 @@ namespace Swashbuckle.AspNetCore.SwaggerGen.Test
         Value2 = 4,
         X = 8
     }
+
+    public enum AnotherEnum
+    {
+        GreatStuff = 0,
+        More = 2
+    }
 }

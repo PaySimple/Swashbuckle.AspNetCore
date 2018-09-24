@@ -34,6 +34,7 @@ namespace Swashbuckle.AspNetCore.SwaggerGen
             target.CustomTypeMappings = new Dictionary<Type, Func<Schema>>(source.CustomTypeMappings);
             target.DescribeAllEnumsAsStrings = source.DescribeAllEnumsAsStrings;
             target.DescribeStringEnumsInCamelCase = source.DescribeStringEnumsInCamelCase;
+            target.DescribeStringEnumsInSnakeCase = source.DescribeStringEnumsInSnakeCase;
             target.UseReferencedDefinitionsForEnums = source.UseReferencedDefinitionsForEnums;
             target.SchemaIdSelector = source.SchemaIdSelector;
             target.IgnoreObsoleteProperties = source.IgnoreObsoleteProperties;

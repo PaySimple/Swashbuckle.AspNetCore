@@ -400,6 +400,21 @@ namespace Swashbuckle.AspNetCore.SwaggerGen.Test
         }
 
         [Fact]
+        public void GetOrRegister_SupportsOptionToDescribeStringEnumsInSnakeCase()
+        {
+            var subject = Subject(c =>
+            {
+                c.DescribeAllEnumsAsStrings = true;
+                c.DescribeStringEnumsInSnakeCase = true;
+            });
+
+            var schema = subject.GetOrRegister(typeof(AnotherEnum));
+
+            Assert.Equal("string", schema.Type);
+            Assert.Equal(new List<object> { "great_stuff", "more" }, schema.Enum);
+        }
+
+        [Fact]
         public void GetOrRegister_SupportsOptionToUseReferencedDefinitionsForEnums()
         {
             var subject = Subject(c =>

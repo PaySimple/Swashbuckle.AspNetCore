@@ -187,6 +187,14 @@ namespace Microsoft.Extensions.DependencyInjection
         }
 
         /// <summary>
+        /// If applicable, describe all enum names, regardless of how they appear in code, in snake_case.
+        /// </summary>
+        public static void DescribeStringEnumsInSnakeCase(this SwaggerGenOptions swaggerGenOptions)
+        {
+            swaggerGenOptions.SchemaRegistryOptions.DescribeStringEnumsInSnakeCase = true;
+        }
+
+        /// <summary>
         /// Use referenced definitions for enum types within body parameter and response schemas
         /// </summary>
         public static void UseReferencedDefinitionsForEnums(this SwaggerGenOptions swaggerGenOptions)

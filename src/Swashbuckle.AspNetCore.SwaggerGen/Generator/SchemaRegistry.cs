@@ -142,6 +142,8 @@ namespace Swashbuckle.AspNetCore.SwaggerGen
                 var camelCase = _options.DescribeStringEnumsInCamelCase
                     || (stringEnumConverter != null && stringEnumConverter.CamelCaseText);
 
+                var snakeCase = _options.DescribeStringEnumsInSnakeCase;
+
                 var enumNames = type.GetFields(BindingFlags.Public | BindingFlags.Static)
                     .Select(f =>
                     {
@@ -153,7 +155,7 @@ namespace Swashbuckle.AspNetCore.SwaggerGen
                             name = enumMemberAttribute.Value;
                         }
 
-                        return camelCase ? name.ToCamelCase() : name;
+                        return snakeCase ? name.ToSnakeCase() : camelCase ? name.ToCamelCase() : name;
                     });
 
                 return new Schema
